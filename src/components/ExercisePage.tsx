@@ -76,11 +76,20 @@ export function ExercisePage({ exercise, prev, next }: ExercisePageProps) {
             {showSolution ? "← volver al starter" : "ver solución →"}
           </button>
         </div>
-        <Playground
-          key={`${exercise.id}-${showSolution ? "sol" : "start"}`}
-          files={showSolution ? exercise.solution : exercise.starter}
-          dependencies={exercise.dependencies}
-        />
+        <div className={showSolution ? "hidden" : ""}>
+          <Playground
+            key={`${exercise.id}-start`}
+            files={exercise.starter}
+            dependencies={exercise.dependencies}
+          />
+        </div>
+        <div className={showSolution ? "" : "hidden"}>
+          <Playground
+            key={`${exercise.id}-sol`}
+            files={exercise.solution}
+            dependencies={exercise.dependencies}
+          />
+        </div>
       </section>
 
       {/* Hint */}

@@ -1,6 +1,11 @@
-import { useEffect, useMemo, useState } from "react"
+import { useEffect, useMemo, useRef, useState } from "react"
 import {
-  Sandpack,
+  SandpackProvider,
+  SandpackLayout,
+  SandpackCodeEditor,
+  SandpackPreview,
+  SandpackConsole,
+  useSandpack,
   type SandpackFiles,
   type SandpackPredefinedTemplate,
   type SandpackThemeProp,
@@ -171,6 +176,19 @@ hr { border: 0; border-top: 1px solid ${t.line}; margin: 14px 0; }
 `
 }
 
+// Updates only /styles.css when theme changes — without touching user code
+function ThemeSync({ theme }: { theme: Theme }) {
+  const { sandpack } = useSandpack()
+  const mounted = useRef(false)
+
+  useEffect(() => {
+    if (!mounted.current) { mounted.current = true; return }
+    sandpack.updateFile("/styles.css", buildStyles(theme))
+  }, [theme]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  return null
+}
+
 interface PlaygroundProps {
   files: SandpackFiles
   template?: SandpackPredefinedTemplate
@@ -187,11 +205,6 @@ export function Playground({
   dependencies,
 }: PlaygroundProps) {
   const { theme } = useTheme()
-
-  const merged: SandpackFiles = useMemo(
-    () => ({ "/styles.css": buildStyles(theme), ...files }),
-    [theme, files],
-  )
 
   const [maximized, setMaximized] = useState(false)
   const [editorHeight, setEditorHeight] = useState(height)
@@ -221,6 +234,12 @@ export function Playground({
     }
   }, [maximized, height])
 
+  // theme intentionally excluded — ThemeSync handles CSS updates imperatively
+  const initialFiles = useMemo(
+    () => ({ "/styles.css": { code: buildStyles(theme), hidden: true }, ...files }),
+    [files], // eslint-disable-line react-hooks/exhaustive-deps
+  )
+
   return (
     <div
       className={
@@ -243,22 +262,27 @@ export function Playground({
       </div>
 
       <div className={maximized ? "min-h-0 flex-1" : ""}>
-        <Sandpack
-          key={theme}
+        <SandpackProvider
           template={template}
           theme={theme === "dark" ? darkTheme : lightTheme}
-          files={merged}
+          files={initialFiles}
           customSetup={dependencies ? { dependencies } : undefined}
-          options={{
-            showLineNumbers: true,
-            showInlineErrors: true,
-            showTabs: Object.keys(files).length > 1,
-            showConsole,
-            showConsoleButton: true,
-            editorHeight,
-            editorWidthPercentage: 65,
-          }}
-        />
+        >
+          <ThemeSync theme={theme} />
+          <SandpackLayout>
+            <SandpackCodeEditor
+              showLineNumbers
+              showInlineErrors
+              showTabs={Object.keys(files).length > 1}
+              style={{ height: editorHeight, flex: "65 65 0%" }}
+            />
+            <SandpackPreview
+              showOpenInCodeSandbox={false}
+              style={{ height: editorHeight, flex: "35 35 0%" }}
+            />
+          </SandpackLayout>
+          {showConsole && <SandpackConsole style={{ height: 200 }} />}
+        </SandpackProvider>
       </div>
     </div>
   )
