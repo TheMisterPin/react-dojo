@@ -107,7 +107,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  transition: background-color 180ms ease, color 180ms ease;
+  transition: background-color 150ms ease, color 150ms ease;
 }
 
 ::selection {
