@@ -93,9 +93,9 @@ export function Header({ onSearchOpen }: HeaderProps) {
             target="_blank"
             rel="noreferrer"
             title="GitHub"
-            className="flex h-7 items-center gap-1 rounded-md px-2 text-[12px] text-[var(--color-fg-muted)] transition-colors hover:bg-[var(--color-bg-hover)] hover:text-[var(--color-fg)]"
+            className="flex h-7 items-center gap-1.5 rounded-md px-2 text-[12px] text-[var(--color-fg-muted)] transition-colors hover:bg-[var(--color-bg-hover)] hover:text-[var(--color-fg)]"
           >
-            <Star className="h-[11px] w-[11px] fill-yellow-400 text-yellow-400" />
+            <Star className="h-[15px] w-[15px] fill-yellow-400 text-yellow-400" />
             <span className="font-mono">
               {stars >= 1000 ? `${(stars / 1000).toFixed(1)}k` : stars}
             </span>
