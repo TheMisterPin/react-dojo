@@ -1,4 +1,5 @@
 import type { Exercise } from "./types"
+import { counterExerciseTestFile } from "./tests/counter-test"
 
 export const counter: Exercise = {
   id: "counter",
@@ -66,4 +67,5 @@ export default function App() {
 }
 `,
   },
+  testFile: counterExerciseTestFile,
 }

@@ -14,7 +14,7 @@ import { optimisticLike } from "./optimistic-like"
 import { actionForm } from "./action-form"
 import type { Exercise } from "./types"
 
-export type { Exercise, Difficulty } from "./types"
+export type { Difficulty, Exercise, ExerciseTestCaseResult, ExerciseTestRunResult } from "./types"
 
 export const allExercises: Exercise[] = [
   counter,

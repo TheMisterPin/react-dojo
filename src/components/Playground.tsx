@@ -13,6 +13,7 @@ import {
   type SandpackThemeProp,
 } from "@codesandbox/sandpack-react"
 import { useTranslations } from "next-intl"
+import { buildExerciseTestEntryJs } from "@/lib/build-exercise-test-entry"
 import { useTheme, type Theme } from "@/hooks/useTheme"
 import { useEditorTheme, type EditorThemeId } from "@/hooks/useEditorTheme"
 
@@ -309,6 +310,8 @@ interface PlaygroundProps {
   showConsole?: boolean
   height?: number
   dependencies?: Record<string, string>
+  /** `/tests.js` oculto fusionado en Sandpack; habilita `/index.js` shim que escucha los tests del ejercicio */
+  exerciseTestFile?: string
 }
 
 export function Playground({
@@ -317,6 +320,7 @@ export function Playground({
   showConsole = false,
   height = 650,
   dependencies,
+  exerciseTestFile,
 }: PlaygroundProps) {
   const t = useTranslations("Playground")
   const { theme: appTheme } = useTheme()
@@ -348,11 +352,17 @@ export function Playground({
     }
   }, [maximized])
 
-  // appTheme intentionally excluded — ThemeSync handles CSS updates imperatively
-  const initialFiles = useMemo(
-    () => ({ "/styles.css": { code: buildStyles(appTheme), hidden: true }, ...files }),
-    [files] // eslint-disable-line react-hooks/exhaustive-deps
-  )
+  const initialFiles = useMemo(() => {
+    const merged: SandpackFiles = {
+      "/styles.css": { code: buildStyles(appTheme), hidden: true },
+      ...files,
+    }
+    if (exerciseTestFile) {
+      merged["/tests.js"] = { code: exerciseTestFile, hidden: true }
+      merged["/index.js"] = { code: buildExerciseTestEntryJs(), hidden: true }
+    }
+    return merged
+  }, [files, exerciseTestFile]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div

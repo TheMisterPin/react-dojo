@@ -72,7 +72,25 @@
     "next": "siguiente →",
     "difficultyBasic": "básico",
     "difficultyIntermediate": "intermedio",
-    "difficultyAdvanced": "avanzado"
+    "difficultyAdvanced": "avanzado",
+    "runTests": "Ejecutar tests",
+    "testsRunning": "Ejecutando tests…",
+    "testsSummary": "{passed} / {total} comprobaciones correctas",
+    "testsPreviewUnavailable": "La vista previa aún no está lista. Espera a que cargue el sandbox.",
+    "testsTimedOut": "Los tests tardaron demasiado.",
+    "testsModalTitle": "Resultados de los tests",
+    "testsClose": "Cerrar"
+  },
+  "ExerciseTests": {
+    "counter": {
+      "previewMissing": "Vista previa del ejercicio",
+      "plusIncrements": "+ suma uno",
+      "liveCountNotHardcoded": "El display muestra el valor vivo (no un 0 fijo)",
+      "minusDecrements": "− resta uno",
+      "resetZero": "reset deja la cuenta en 0",
+      "plusThree": "+3 suma tres",
+      "detailMissingRoot": "No se encontró el elemento #root"
+    }
   },
   "QuizPage": {
     "quiz": "Quiz",

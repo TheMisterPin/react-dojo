@@ -72,7 +72,14 @@
     "next": "next →",
     "difficultyBasic": "basic",
     "difficultyIntermediate": "intermediate",
-    "difficultyAdvanced": "advanced"
+    "difficultyAdvanced": "advanced",
+    "runTests": "Run tests",
+    "testsRunning": "Running tests…",
+    "testsSummary": "{passed} / {total} checks passed",
+    "testsPreviewUnavailable": "Preview is not ready yet. Wait for the sandbox to finish loading.",
+    "testsTimedOut": "Tests timed out.",
+    "testsModalTitle": "Test results",
+    "testsClose": "Close"
   },
   "QuizPage": {
     "quiz": "Quiz",

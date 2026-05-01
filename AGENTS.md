@@ -93,6 +93,7 @@ export function useTheme() {
 - Exercise files live in `src/content/exercises/`.
 - When adding a new concept or exercise, register it in the relevant index file (`src/content/concepts.ts` or `src/content/exercises/index.ts`).
 - All playground code in exercises must work inside a Sandpack sandbox — no external network calls or Node.js APIs.
+- Exercises may optionally define `testFile` (bundled as hidden `/tests.js`) so learners can run automated checks in the sandbox; tests execute inside the preview iframe.
 
 ---
 
