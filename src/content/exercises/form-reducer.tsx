@@ -1,4 +1,5 @@
 import type { Exercise } from "./types"
+import { formReducerExerciseTestFile } from "./tests/form-reducer-test"
 
 export const formReducer: Exercise = {
   id: "form-reducer",
@@ -175,4 +176,5 @@ export default function App() {
 }
 `,
   },
+  testFile: formReducerExerciseTestFile,
 }

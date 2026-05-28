@@ -1,4 +1,5 @@
 import type { Exercise } from "./types"
+import { stopwatchExerciseTestFile } from "./tests/stopwatch-test"
 
 export const stopwatch: Exercise = {
   id: "stopwatch",
@@ -104,4 +105,5 @@ export default function App() {
 }
 `,
   },
+  testFile: stopwatchExerciseTestFile,
 }

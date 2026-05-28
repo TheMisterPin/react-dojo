@@ -90,6 +90,105 @@
       "resetZero": "reset deja la cuenta en 0",
       "plusThree": "+3 suma tres",
       "detailMissingRoot": "No se encontró el elemento #root"
+    },
+    "auto-focus": {
+      "inputFocusesOnMount": "El input se enfoca al montar",
+      "focusButtonFocusesInput": "Botón 'Enfocar' aplica focus programático",
+      "inputIsControlled": "El texto del input es estado controlado",
+      "renderCounterInRef": "El contador de renders usa una ref (no causa re-renders)",
+      "clearResetsText": "Botón 'Limpiar' resetea el texto y enfoca el input"
+    },
+    "stopwatch": {
+      "requiredElementsPresent": "Están los elementos requeridos del cronómetro",
+      "initialTimeZero": "El tiempo inicial es 00:00.00",
+      "timeFormat": "El tiempo usa formato mm:ss.cc",
+      "startAdvancesTime": "start avanza el cronómetro",
+      "pauseStopsTime": "pause detiene el cronómetro",
+      "resetStopsAndClears": "reset limpia y pausa el cronómetro"
+    },
+    "use-memo-filter": {
+      "requiredElementsPresent": "Están los elementos requeridos del filtro",
+      "listRenders": "La lista de tareas renderiza",
+      "queryFiltersList": "La query filtra la lista",
+      "orderChangesSort": "El orden cambia el primer resultado",
+      "counterDoesNotRecalculate": "El contador no recalcula la lista"
+    },
+    "optimistic-like": {
+      "requiredElementsPresent": "Está el botón de like requerido",
+      "initialLikes": "Los likes iniciales empiezan en 42",
+      "optimisticIncrementImmediate": "El click incrementa de forma optimista",
+      "pendingVisualState": "El estado pendiente da feedback visual",
+      "successCommitsLike": "El guardado exitoso confirma el like",
+      "failureRevertsOptimisticLike": "El guardado fallido revierte el valor optimista"
+    },
+    "todo-list": {
+      "requiredElementsPresent": "Están los elementos requeridos de la lista",
+      "submitAddsTrimmedItem": "Submit agrega una tarea sin espacios sobrantes",
+      "emptySubmitDoesNotAdd": "Submit vacío no agrega tareas",
+      "multipleItemsUseIds": "Varias tareas renderizan de forma independiente",
+      "clickTextTogglesDone": "Click en el texto alterna done",
+      "removeDeletesOnlyOneItem": "Eliminar borra solo una tarea"
+    },
+    "form-reducer": {
+      "requiredElementsPresent": "Están los elementos requeridos del formulario",
+      "submitDisabledWhenInvalid": "Submit inicia deshabilitado si hay errores",
+      "blurShowsFieldError": "Blur muestra el error del campo",
+      "submitShowsAllErrors": "Submit revela los errores relevantes",
+      "validValuesEnableSubmit": "Valores válidos habilitan submit",
+      "successfulSubmitShowsSent": "Submit exitoso muestra estado enviado"
+    },
+    "fetch-user": {
+      "requiredElementsPresent": "Están los botones requeridos de usuario",
+      "fetchRunsWithSignal": "Fetch corre con signal de AbortController",
+      "loadingStateShown": "Se muestra el estado cargando",
+      "buttonsChangeUserImmediately": "Los botones cambian usuario al instante",
+      "staleRequestsAbort": "Las peticiones viejas se abortan",
+      "staleResponseIgnored": "Respuestas viejas no pisan la UI",
+      "latestDataShown": "Se muestra la respuesta más reciente",
+      "abortErrorIgnored": "AbortError se ignora"
+    },
+    "theme-context": {
+      "requiredElementsPresent": "Están los controles requeridos de tema",
+      "initialThemeDark": "El tema inicial es dark",
+      "themeToggleChangesCard": "Cambiar tema actualiza la tarjeta",
+      "tickChangesOnlyParentState": "Tick cambia el estado padre",
+      "toolbarDoesNotRerenderOnTick": "Toolbar no re-renderiza con tick"
+    },
+    "use-callback": {
+      "requiredElementsPresent": "Están los controles requeridos de la lista",
+      "initialItemsRender": "Los items iniciales renderizan",
+      "counterIncrements": "El contador incrementa",
+      "itemsDoNotRerenderOnCounter": "Los items no re-renderizan al cambiar el contador",
+      "deleteRemovesOneItem": "Eliminar borra un item"
+    },
+    "transition-tabs": {
+      "requiredElementsPresent": "Están los botones requeridos de tabs",
+      "initialTabRenders": "La tab inicial renderiza",
+      "slowTabRendersList": "La tab lenta renderiza la lista",
+      "tabsSwitchContent": "Las tabs cambian el contenido",
+      "pendingVisualFeedback": "La transición pendiente tiene feedback visual"
+    },
+    "action-form": {
+      "requiredElementsPresent": "Están los elementos requeridos del action form",
+      "invalidUsernameShowsError": "Username inválido muestra error",
+      "invalidEmailShowsError": "Email inválido muestra error",
+      "pendingDisablesControls": "Submit pendiente deshabilita controles",
+      "validSubmitShowsWelcome": "Submit válido muestra bienvenida"
+    },
+    "debounced-search": {
+      "requiredElementsPresent": "Están los elementos requeridos de búsqueda",
+      "initialListRenders": "La lista inicial renderiza",
+      "inputUpdatesImmediately": "El input actualiza al instante",
+      "deferredListEventuallyUpdates": "La lista diferida actualiza después",
+      "staleFeedbackAvailable": "El estado desfasado da feedback visual"
+    },
+    "lazy-modal": {
+      "requiredElementsPresent": "Está el disparador requerido del modal",
+      "modalInitiallyAbsent": "El modal no existe inicialmente",
+      "firstOpenShowsFallback": "La primera apertura muestra fallback de carga",
+      "modalAppearsAfterDelay": "El modal aparece tras la demora lazy",
+      "closeHidesModal": "Cerrar oculta el modal",
+      "reopenUsesCachedModule": "Reabrir usa el módulo cacheado"
     }
   },
   "QuizPage": {

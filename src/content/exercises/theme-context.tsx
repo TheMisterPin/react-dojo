@@ -1,4 +1,5 @@
 import type { Exercise } from "./types"
+import { themeContextExerciseTestFile } from "./tests/theme-context-test"
 
 export const themeContext: Exercise = {
   id: "theme-context",
@@ -125,4 +126,5 @@ export default function App() {
 }
 `,
   },
+  testFile: themeContextExerciseTestFile,
 }

@@ -95,6 +95,48 @@ export function useTheme() {
 - All playground code in exercises must work inside a Sandpack sandbox — no external network calls or Node.js APIs.
 - Exercises may optionally define `testFile` (bundled as hidden `/tests.js`) so learners can run automated checks in the sandbox; tests execute inside the preview iframe.
 
+### Exercise Testing Pattern
+
+Test files for exercises live in `src/content/exercises/tests/` using the naming convention `{exerciseId}-test.tsx`. Each test file exports a `runTests()` async function that:
+
+- Uses DOM selectors to find buttons and inputs (query by text content for buttons)
+- Simulates user interactions (clicks, input changes)
+- Uses a `settle()` helper to wait for async updates (requestAnimationFrame + setTimeout)
+- Returns an object with a `cases` array of `{ label: string, ok: boolean }` objects
+
+Example structure:
+
+```tsx
+export const exerciseTestFile = `
+async function settle() {
+  await new Promise((resolve) => requestAnimationFrame(resolve));
+  await new Promise((resolve) => setTimeout(resolve, 0));
+}
+
+export async function runTests() {
+  const cases = [];
+  const push = (label, ok) => cases.push({ label, ok });
+
+  // Get DOM elements
+  const root = document.getElementById("root");
+  const input = root?.querySelector("input");
+  const button = root?.querySelector("button");
+
+  // Test each objective
+  push("objectiveLabel", expectedCondition);
+  
+  button?.click();
+  await settle();
+  
+  push("anotherObjective", input?.value === "expected");
+
+  return { cases };
+}
+`
+```
+
+Each test label should map to an exercise objective for clear learner feedback.
+
 ---
 
 ## Commit Conventions

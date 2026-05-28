@@ -1,4 +1,5 @@
 import type { Exercise } from "./types"
+import { useCallbackExerciseTestFile } from "./tests/use-callback-test"
 
 export const useCallbackExercise: Exercise = {
   id: "use-callback",
@@ -97,4 +98,5 @@ export default function App() {
 }
 `,
   },
+  testFile: useCallbackExerciseTestFile,
 }

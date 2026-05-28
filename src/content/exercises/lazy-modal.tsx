@@ -1,4 +1,5 @@
 import type { Exercise } from "./types"
+import { lazyModalExerciseTestFile } from "./tests/lazy-modal-test"
 
 export const lazyModal: Exercise = {
   id: "lazy-modal",
@@ -125,4 +126,5 @@ export default function EditorModal({ onClose }) {
 }
 `,
   },
+  testFile: lazyModalExerciseTestFile,
 }

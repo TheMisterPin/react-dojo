@@ -1,4 +1,5 @@
 import type { Exercise } from "./types"
+import { useMemoFilterExerciseTestFile } from "./tests/use-memo-filter-test"
 
 export const useMemoFilter: Exercise = {
   id: "use-memo-filter",
@@ -132,4 +133,5 @@ export default function App() {
 }
 `,
   },
+  testFile: useMemoFilterExerciseTestFile,
 }

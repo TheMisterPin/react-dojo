@@ -1,4 +1,5 @@
 import type { Exercise } from "./types"
+import { todoListExerciseTestFile } from "./tests/todo-list-test"
 
 export const todoList: Exercise = {
   id: "todo-list",
@@ -130,4 +131,5 @@ export default function App() {
 }
 `,
   },
+  testFile: todoListExerciseTestFile,
 }

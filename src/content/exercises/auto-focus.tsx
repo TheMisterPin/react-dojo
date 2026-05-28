@@ -1,4 +1,5 @@
 import type { Exercise } from "./types"
+import { autoFocusExerciseTestFile } from "./tests/auto-focus-test"
 
 export const autoFocus: Exercise = {
   id: "auto-focus",
@@ -87,4 +88,5 @@ export default function App() {
 }
 `,
   },
+  testFile: autoFocusExerciseTestFile,
 }

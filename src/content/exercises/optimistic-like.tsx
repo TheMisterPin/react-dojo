@@ -1,4 +1,5 @@
 import type { Exercise } from "./types"
+import { optimisticLikeExerciseTestFile } from "./tests/optimistic-like-test"
 
 const r19 = { react: "^19.0.0", "react-dom": "^19.0.0" }
 
@@ -144,4 +145,5 @@ export default function App() {
 }
 `,
   },
+  testFile: optimisticLikeExerciseTestFile,
 }

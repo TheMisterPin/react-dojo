@@ -1,4 +1,5 @@
 import type { Exercise } from "./types"
+import { actionFormExerciseTestFile } from "./tests/action-form-test"
 
 const r19 = { react: "^19.0.0", "react-dom": "^19.0.0" }
 
@@ -118,4 +119,5 @@ export default function App() {
 }
 `,
   },
+  testFile: actionFormExerciseTestFile,
 }

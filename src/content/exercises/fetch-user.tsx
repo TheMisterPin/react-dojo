@@ -1,4 +1,5 @@
 import type { Exercise } from "./types"
+import { fetchUserExerciseTestFile } from "./tests/fetch-user-test"
 
 export const fetchUser: Exercise = {
   id: "fetch-user",
@@ -132,4 +133,5 @@ export default function App() {
 }
 `,
   },
+  testFile: fetchUserExerciseTestFile,
 }

@@ -1,4 +1,5 @@
 import type { Exercise } from "./types"
+import { transitionTabsExerciseTestFile } from "./tests/transition-tabs-test"
 
 export const transitionTabs: Exercise = {
   id: "transition-tabs",
@@ -111,4 +112,5 @@ export default function App() {
 }
 `,
   },
+  testFile: transitionTabsExerciseTestFile,
 }

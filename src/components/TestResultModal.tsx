@@ -19,6 +19,7 @@ interface TestResultModalProps {
   testPhase: "idle" | "running" | "done"
   testCases: ExerciseTestCaseResult[]
   errorMessage?: string
+  exerciseId?: string
 }
 
 export function TestResultModal({
@@ -27,8 +28,10 @@ export function TestResultModal({
   testPhase,
   testCases,
   errorMessage,
+  exerciseId,
 }: TestResultModalProps) {
   const t = useTranslations("ExercisePage")
+  const tTests = useTranslations("ExerciseTests")
 
   const totalChecks = testCases.length
   const passedChecks = testCases.filter((row) => row.ok).length
@@ -54,34 +57,45 @@ export function TestResultModal({
 
           {testCases.length > 0 ? (
             <ul className="space-y-2">
-              {testCases.map((testCaseRow, index) => (
-                <li
-                  key={`${testCaseRow.label}-${index}`}
-                  className="flex items-start gap-2 text-[13px]"
-                >
-                  {testCaseRow.ok ? (
-                    <CheckCircle2
-                      className="mt-[2px] h-[14px] w-[14px] shrink-0 text-green-600 dark:text-green-400"
-                      strokeWidth={1.8}
-                      aria-hidden
-                    />
-                  ) : (
-                    <XCircle
-                      className="mt-[2px] h-[14px] w-[14px] shrink-0 text-red-600 dark:text-red-400"
-                      strokeWidth={1.8}
-                      aria-hidden
-                    />
-                  )}
-                  <span>
-                    <span className="text-[var(--color-fg)]">{testCaseRow.label}</span>
-                    {!testCaseRow.ok && testCaseRow.detail ? (
-                      <span className="block text-[12px] text-[var(--color-fg-dim)]">
-                        {testCaseRow.detail}
-                      </span>
-                    ) : null}
-                  </span>
-                </li>
-              ))}
+              {testCases.map((testCaseRow, index) => {
+                let displayLabel = testCaseRow.label
+                if (exerciseId) {
+                  try {
+                    displayLabel = tTests(`${exerciseId}.${testCaseRow.label}`)
+                  } catch {
+                    displayLabel = testCaseRow.label
+                  }
+                }
+
+                return (
+                  <li
+                    key={`${testCaseRow.label}-${index}`}
+                    className="flex items-start gap-2 text-[13px]"
+                  >
+                    {testCaseRow.ok ? (
+                      <CheckCircle2
+                        className="mt-[2px] h-[14px] w-[14px] shrink-0 text-green-600 dark:text-green-400"
+                        strokeWidth={1.8}
+                        aria-hidden
+                      />
+                    ) : (
+                      <XCircle
+                        className="mt-[2px] h-[14px] w-[14px] shrink-0 text-red-600 dark:text-red-400"
+                        strokeWidth={1.8}
+                        aria-hidden
+                      />
+                    )}
+                    <span>
+                      <span className="text-[var(--color-fg)]">{displayLabel}</span>
+                      {!testCaseRow.ok && testCaseRow.detail ? (
+                        <span className="block text-[12px] text-[var(--color-fg-dim)]">
+                          {testCaseRow.detail}
+                        </span>
+                      ) : null}
+                    </span>
+                  </li>
+                )
+              })}
             </ul>
           ) : null}
         </div>

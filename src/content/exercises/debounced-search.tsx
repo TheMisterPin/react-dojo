@@ -1,4 +1,5 @@
 import type { Exercise } from "./types"
+import { debouncedSearchExerciseTestFile } from "./tests/debounced-search-test"
 
 export const debouncedSearch: Exercise = {
   id: "debounced-search",
@@ -111,4 +112,5 @@ export default function App() {
 }
 `,
   },
+  testFile: debouncedSearchExerciseTestFile,
 }
